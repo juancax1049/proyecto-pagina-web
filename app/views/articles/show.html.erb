@@ -1,0 +1,41 @@
+
+
+<div class="show-article">
+	<div class="no-margin">
+		<div class="text-left">
+			<h1>Nombre:<%= @article.nombre %></h1>
+			<% unless @article.user.nil? %>
+				<p>
+				Escrito por: <%= @article.user.email %>
+				</p>
+			<%end%>
+		</div>
+		
+			 <div class="text-left">
+				<h3>Marca: <%= @article.marca %>		</h3>
+				
+			 </div>   
+			  <div>
+			  	<h3> Tipo:<%= @article.tipo %>  </h3>
+			  </div>
+			   
+			  <div>
+			  	<h3> Descripcion:</h3>
+			  	 	<p>
+			  		<%= @article.descripcion %> 	
+			  		</p>
+			 </div>		 
+					
+	</div>
+</div>
+             
+ <% if can? :update, @article %>
+	  <div class="field white volver margin-edit">
+			<%= link_to "Editar", edit_article_path(@article), class:"btn be-red" %>
+	   </div>
+	<%end%>
+	<div class="field white margin-return">
+			<%= link_to "Volver",articles_path(@article), class:"btn be-red" %>
+	</div>
+
+

@@ -1,0 +1,12 @@
+<% if user_signed_in?%>
+<h1>Bienvenido <%= current_user.email %></h1>
+<%end%>
+<div id= "resultados">
+	
+</div>
+<%= form_tag "/search/create", method: :get, remote: true, id: "search-form" do %>
+ <%= text_field_tag :keyword, nil, placeholder: "Que estas buscando" %>
+  <%= content_tag :button, type: :submit do %>
+   Buscar
+  <%end%>
+<%end%>

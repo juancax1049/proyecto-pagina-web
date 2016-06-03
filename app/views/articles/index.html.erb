@@ -1,0 +1,24 @@
+
+
+<% @articles.each do |article| %>
+  <h1><%= link_to article.nombre, article %></h1>
+	<div class="row">
+	  <div class="col-md">
+	    <div class="box">
+	        <%= article.marca %>
+	      </div>
+	  </div>
+	  <div class="col-md">
+	    <div class="box">
+	        <%= article.tipo %>
+	      </div>
+	    </div>
+	  <div class="col-md">
+	   <% if can? :destroy, article %>
+	    <div class="box">
+	       <%= link_to "Eliminar", article, method: :delete, class: "red"%>
+	   <%end%>
+	    </div>
+	  </div>
+	</div>
+<%end%>a
